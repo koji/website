@@ -1,5 +1,4 @@
 import { DECORATIVE_DOTS } from '../types/hero';
-import { HeroShaderBackground } from './HeroShaderBackground';
 import { WorkspaceMockup } from './WorkspaceMockup';
 import type { ReactNode } from 'react';
 
@@ -10,16 +9,22 @@ const handleScrollTo = (id: string) => {
 const Hero = (): ReactNode => {
   return (
     <section id="home" className="relative overflow-hidden bg-[#191E2C] pt-16">
-      {/* Shader Background */}
+      {/* Static Background */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-        <HeroShaderBackground />
+        <div
+          className="absolute inset-0 h-full w-full"
+          style={{
+            background:
+              'radial-gradient(ellipse at 30% 20%, rgba(119,102,228,0.35), transparent 60%), radial-gradient(ellipse at 70% 80%, rgba(18,66,149,0.4), transparent 60%), #0f1220',
+          }}
+        />
         {/* Dark overlay to keep text readable */}
         <div className="absolute inset-0 bg-[#191E2C]/35" />
         {/* Subtle vignette */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#191E2C]/20 via-transparent to-[#191E2C]/55" />
       </div>
 
-      {/* Background Decorative Dots - kept subtle over shader */}
+      {/* Background Decorative Dots */}
       {DECORATIVE_DOTS.map((dot) => (
         <div
           key={dot.id}

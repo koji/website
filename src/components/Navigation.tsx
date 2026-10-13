@@ -1,16 +1,30 @@
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { MouseEvent, ReactNode } from "react";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isProjectsOpen, setIsProjectsOpen] = useState(false);
+  const projectsMenuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!isProjectsOpen) return;
+    const onPointerDown = (e: PointerEvent) => {
+      if (!projectsMenuRef.current?.contains(e.target as Node)) {
+        setIsProjectsOpen(false);
+      }
+    };
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsProjectsOpen(false);
+    };
+    document.addEventListener("pointerdown", onPointerDown);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("pointerdown", onPointerDown);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [isProjectsOpen]);
 
   const handleNavClick = (e: MouseEvent<HTMLElement>, sectionId: string):ReactNode => {
     if (
@@ -63,40 +77,41 @@ const Navigation = () => {
               About
             </button>
 
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <button
-                  type="button"
-                  className="text-sm text-[#787774] hover:text-[#37352F] transition-colors"
-                >
-                  Projects
-                </button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="bg-white border border-[#E9E9E7] shadow-notion-card rounded-[8px]">
-                <DropdownMenuItem
-                  asChild
-                  className="cursor-pointer text-sm text-[#37352F] hover:bg-[#F7F6F3]"
-                >
+            <div ref={projectsMenuRef} className="relative">
+              <button
+                type="button"
+                aria-haspopup="true"
+                aria-expanded={isProjectsOpen}
+                onClick={() => setIsProjectsOpen((v) => !v)}
+                className="text-sm text-[#787774] hover:text-[#37352F] transition-colors"
+              >
+                Projects
+              </button>
+              {isProjectsOpen && (
+                <div className="absolute left-0 top-full mt-2 min-w-[180px] bg-white border border-[#E9E9E7] shadow-notion-card rounded-[8px] p-1">
                   <button
                     type="button"
-                    onClick={(e) => handleNavClick(e, "work")}
+                    onClick={(e) => {
+                      setIsProjectsOpen(false);
+                      handleNavClick(e, "work");
+                    }}
+                    className="block w-full text-left px-2 py-1.5 cursor-pointer text-sm text-[#37352F] hover:bg-[#F7F6F3] rounded-[8px]"
                   >
                     Work
                   </button>
-                </DropdownMenuItem>
-                <DropdownMenuItem
-                  asChild
-                  className="cursor-pointer text-sm text-[#37352F] hover:bg-[#F7F6F3]"
-                >
                   <button
                     type="button"
-                    onClick={(e) => handleNavClick(e, "personal")}
+                    onClick={(e) => {
+                      setIsProjectsOpen(false);
+                      handleNavClick(e, "personal");
+                    }}
+                    className="block w-full text-left px-2 py-1.5 cursor-pointer text-sm text-[#37352F] hover:bg-[#F7F6F3] rounded-[8px]"
                   >
                     Personal Projects
                   </button>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+                </div>
+              )}
+            </div>
 
             <a
               href="https://baxin.pages.dev/"

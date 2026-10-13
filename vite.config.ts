@@ -53,15 +53,8 @@ export default defineConfig(() => ({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: {
-          'vendor-react': [
-            'react',
-            'react-dom',
-            'react-router-dom',
-            '@radix-ui/react-slot',
-            'class-variance-authority',
-            'lucide-react',
-          ],
+        manualChunks(id) {
+          if (id.includes('node_modules')) return 'vendor';
         },
       },
     },

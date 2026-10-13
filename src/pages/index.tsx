@@ -1,21 +1,16 @@
-import About from '@/components/About';
-import Contact from '@/components/Contact';
 import GoToTopButton from '@/components/GoToTopButton';
 import Hero from '@/components/Hero';
 import Navigation from '@/components/Navigation';
-import PersonalProjects from '@/components/PersonalProjects';
-import { WorkProjects } from '@/components/WorkProjects';
-import React, { useEffect } from 'react';
+import React, { Suspense, lazy } from 'react';
+
+const About = lazy(() => import('@/components/About'));
+const Contact = lazy(() => import('@/components/Contact'));
+const PersonalProjects = lazy(() => import('@/components/PersonalProjects'));
+const WorkProjects = lazy(() =>
+  import('@/components/WorkProjects').then((m) => ({ default: m.WorkProjects })),
+);
 
 export const Index = () => {
-  useEffect(() => {
-    if (!('scrollBehavior' in document.documentElement.style)) {
-      import('smoothscroll-polyfill').then((smoothscroll) => {
-        smoothscroll.polyfill();
-      });
-    }
-  }, []);
-
   return (
     <div className="min-h-screen bg-notion-canvas text-notion-ink">
       <a
@@ -28,10 +23,12 @@ export const Index = () => {
 
       <main id="main-content" tabIndex={-1}>
         <Hero />
-        <About />
-        <WorkProjects />
-        <PersonalProjects />
-        <Contact />
+        <Suspense fallback={null}>
+          <About />
+          <WorkProjects />
+          <PersonalProjects />
+          <Contact />
+        </Suspense>
       </main>
 
       <GoToTopButton

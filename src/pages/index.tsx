@@ -37,7 +37,9 @@ export const Index = () => {
 
     scrollToSection();
 
-    return () => cancelAnimationFrame(requestId);
+    return () => {
+      cancelAnimationFrame(requestId);
+    };
   }, [hash]);
 
   return (

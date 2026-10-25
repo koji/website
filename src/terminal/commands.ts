@@ -67,8 +67,8 @@ const COMMANDS = {
     description: 'List available commands.',
     handler: async function* () {
       yield success('Available commands');
-      for (const name of COMMAND_NAMES) {
-        yield output(`  ${name.padEnd(10)} ${COMMANDS[name].description}`);
+      for (const name of Object.keys(COMMANDS)) {
+        yield output(`  ${name.padEnd(10)} ${COMMANDS[name as keyof typeof COMMANDS].description}`);
       }
       yield output(`  ${'clear'.padEnd(10)} Clear the terminal history. (built-in)`);
       yield output('');
@@ -225,8 +225,6 @@ const COMMANDS = {
   },
 } satisfies Record<string, CommandDefinition>;
 
-const COMMAND_NAMES = Object.keys(COMMANDS) as (keyof typeof COMMANDS)[];
-
 const ALIASES = {
   しごと: 'work',
   ぷろじぇくと: 'projects',
@@ -236,8 +234,8 @@ const ALIASES = {
 export const createCommands = (ctx: TerminalContext): Record<string, CommandAction> => {
   const commands: Record<string, CommandAction> = {};
 
-  for (const name of COMMAND_NAMES) {
-    const definition = COMMANDS[name];
+  for (const name of Object.keys(COMMANDS)) {
+    const definition = COMMANDS[name as keyof typeof COMMANDS];
     commands[name] = (args) => definition.handler(args, ctx);
   }
 

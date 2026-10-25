@@ -20,25 +20,27 @@ export const Index = () => {
     const id = hash.slice(1);
     if (!id) return;
 
-    let frame = 0;
-    let requestId = 0;
-
-    const scrollToSection = () => {
+    const scrollToSection = (): boolean => {
       const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-        return;
-      }
-      if (frame < 120) {
-        frame += 1;
-        requestId = requestAnimationFrame(scrollToSection);
-      }
+      if (!element) return false;
+      element.scrollIntoView({ behavior: 'smooth' });
+      return true;
     };
 
-    scrollToSection();
+    if (scrollToSection()) return;
+
+    // Sections are lazy-loaded, so wait for the target to mount instead of
+    // giving up after a fixed number of frames. The timeout only guards
+    // against a hash that never matches an element.
+    const observer = new MutationObserver(() => {
+      if (scrollToSection()) observer.disconnect();
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+    const timeoutId = setTimeout(() => observer.disconnect(), 10_000);
 
     return () => {
-      cancelAnimationFrame(requestId);
+      observer.disconnect();
+      clearTimeout(timeoutId);
     };
   }, [hash]);
 

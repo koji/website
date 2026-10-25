@@ -94,6 +94,8 @@ const PersonalProjects = (): ReactNode => {
                       type="button"
                       className="flex-1 py-1.5 text-xs font-medium text-[#37352F] bg-white border border-[#E9E9E7] rounded-[8px] hover:bg-[#F7F6F3] transition-colors"
                       onClick={() => window.open(project.githubUrl, '_blank', 'noopener')}
+                      data-umami-event="project-github"
+                      data-umami-event-project={project.title}
                     >
                       GitHub
                     </button>
@@ -103,6 +105,8 @@ const PersonalProjects = (): ReactNode => {
                       type="button"
                       className="flex-1 py-1.5 text-xs font-medium text-white bg-[#7766E4] rounded-[8px] hover:bg-[#6655D8] transition-colors"
                       onClick={() => window.open(project.liveUrl, '_blank', 'noopener')}
+                      data-umami-event="project-live"
+                      data-umami-event-project={project.title}
                     >
                       Live Demo
                     </button>

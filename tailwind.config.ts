@@ -8,6 +8,7 @@ export default {
     './src/**/*.{ts,tsx}',
   ],
   prefix: '',
+  safelist: ['w-4', 'h-4'],
   theme: {
     container: {
       center: true,

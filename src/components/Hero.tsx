@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { DECORATIVE_DOTS } from '../types/hero';
 import { WorkspaceMockup } from './WorkspaceMockup';
 import type { ReactNode } from 'react';
@@ -63,7 +64,7 @@ const Hero = (): ReactNode => {
 
         {/* CTA Buttons */}
         <div
-          className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-16 animate-fade-in"
+          className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-6 animate-fade-in"
           style={{ animationDelay: '0.45s' }}
         >
           <button
@@ -80,6 +81,12 @@ const Hero = (): ReactNode => {
           >
             Get In Touch
           </button>
+        </div>
+
+        <div className="mb-16 animate-fade-in" style={{ animationDelay: '0.5s' }}>
+          <Link to="/terminal" className="text-sm text-white/60 hover:text-white transition-colors">
+            or explore the terminal →
+          </Link>
         </div>
 
         {/* Workspace Mockup Card */}

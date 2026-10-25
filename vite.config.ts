@@ -16,6 +16,7 @@ export default defineConfig(() => ({
       changefreq: 'monthly',
       priority: 1.0,
       generateRobotsTxt: true,
+      dynamicRoutes: ['/terminal'],
       robots: [
         {
           userAgent: 'Googlebot',
@@ -54,7 +55,9 @@ export default defineConfig(() => ({
     rollupOptions: {
       output: {
         manualChunks(id) {
-          if (id.includes('node_modules')) return 'vendor';
+          if (!id.includes('node_modules')) return;
+          if (id.includes('hakoniwa-term')) return;
+          return 'vendor';
         },
       },
     },

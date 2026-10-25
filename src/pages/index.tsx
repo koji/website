@@ -1,7 +1,8 @@
 import GoToTopButton from '@/components/GoToTopButton';
 import Hero from '@/components/Hero';
 import Navigation from '@/components/Navigation';
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense, lazy, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const About = lazy(() => import('@/components/About'));
 const Contact = lazy(() => import('@/components/Contact'));
@@ -11,6 +12,34 @@ const WorkProjects = lazy(() =>
 );
 
 export const Index = () => {
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (!hash) return;
+
+    const id = hash.slice(1);
+    if (!id) return;
+
+    let frame = 0;
+    let requestId = 0;
+
+    const scrollToSection = () => {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        return;
+      }
+      if (frame < 120) {
+        frame += 1;
+        requestId = requestAnimationFrame(scrollToSection);
+      }
+    };
+
+    scrollToSection();
+
+    return () => cancelAnimationFrame(requestId);
+  }, [hash]);
+
   return (
     <div className="min-h-screen bg-notion-canvas text-notion-ink">
       <a

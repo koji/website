@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import type { MouseEvent, ReactNode } from "react";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -211,6 +212,13 @@ const Navigation = () => {
               >
                 Contact
               </button>
+              <Link
+                to="/terminal"
+                onClick={() => setIsMenuOpen(false)}
+                className="block px-4 py-2.5 text-sm text-[#787774] hover:text-[#37352F] hover:bg-[#F7F6F3] rounded-[8px]"
+              >
+                Terminal
+              </Link>
             </div>
           </div>
         )}

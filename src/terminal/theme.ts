@@ -1,5 +1,16 @@
 import { TERMINAL_PRESETS } from 'hakoniwa-term';
-import type { TerminalPreset } from 'hakoniwa-term';
+import type { TerminalPreset, TerminalTheme } from 'hakoniwa-term';
+
+export const NOTION_TERMINAL_THEME: TerminalTheme = {
+  bg: '#191E2C',
+  titleBg: '#0F1117',
+  border: 'rgba(119, 102, 228, 0.35)',
+  text: '#F7F6F3',
+  prompt: '#A99CFF',
+  error: '#FCA5A5',
+  success: '#6EE7B7',
+  progress: '#A99CFF',
+};
 
 export type TerminalThemeChoice = 'notion' | TerminalPreset;
 

@@ -1,0 +1,10 @@
+.terminal-shell input {
+  font-size: 16px;
+  min-width: 0;
+}
+
+.terminal-shell input:focus-visible {
+  outline: 2px solid #a99cff;
+  outline-offset: 2px;
+  border-radius: 2px;
+}

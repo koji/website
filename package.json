@@ -19,6 +19,7 @@
     "@radix-ui/react-slot": "^1.1.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "hakoniwa-term": "^0.0.6",
     "lucide-react": "^0.511.0",
     "react": "19.2.8",
     "react-dom": "19.2.8",

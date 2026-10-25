@@ -33,7 +33,8 @@ const SECTIONS = {
 
 type Section = keyof typeof SECTIONS;
 
-const isSection = (value: string): value is Section => value in SECTIONS;
+const isSection = (value: string): value is Section =>
+  Object.prototype.hasOwnProperty.call(SECTIONS, value);
 
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 

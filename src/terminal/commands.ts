@@ -232,7 +232,7 @@ const ALIASES = {
 } as const satisfies Record<string, keyof typeof COMMANDS>;
 
 export const createCommands = (ctx: TerminalContext): Record<string, CommandAction> => {
-  const commands: Record<string, CommandAction> = {};
+  const commands: Record<string, CommandAction> = Object.create(null);
 
   for (const name of Object.keys(COMMANDS)) {
     const definition = COMMANDS[name as keyof typeof COMMANDS];

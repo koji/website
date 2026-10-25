@@ -84,7 +84,7 @@ export const WorkProjects = (): ReactNode => {
                   </ul>
                 </div>
 
-                {project.link && <ProjectLink link={project.link} />}
+                {project.link && <ProjectLink link={project.link} name={project.title} />}
               </div>
             );
           })}

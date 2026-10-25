@@ -118,6 +118,7 @@ const Navigation = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-[#787774] hover:text-[#37352F] transition-colors"
+              data-umami-event="outbound-blog"
             >
               Blog
             </a>
@@ -127,6 +128,7 @@ const Navigation = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-[#787774] hover:text-[#37352F] transition-colors"
+              data-umami-event="outbound-github"
             >
               GitHub
             </a>
@@ -135,6 +137,7 @@ const Navigation = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-[#787774] hover:text-[#37352F] transition-colors"
+              data-umami-event="outbound-huggingface"
             >
               HuggingFace
             </a>
@@ -197,6 +200,7 @@ const Navigation = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block px-4 py-2.5 text-sm text-[#787774] hover:text-[#37352F] hover:bg-[#F7F6F3] rounded-[8px]"
+                data-umami-event="outbound-blog"
               >
                 Blog
               </a>

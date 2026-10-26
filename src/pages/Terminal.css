@@ -8,3 +8,8 @@
   outline-offset: 2px;
   border-radius: 2px;
 }
+
+/* hakoniwa-term ships the log box at 24rem; 1.5x it */
+.terminal-shell [class*="_contentBox_"] {
+  height: 36rem;
+}

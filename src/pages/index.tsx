@@ -1,14 +1,15 @@
+import React, { Suspense, lazy, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+
 import GoToTopButton from '@/components/GoToTopButton';
 import Hero from '@/components/Hero';
 import Navigation from '@/components/Navigation';
-import React, { Suspense, lazy, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 
 const About = lazy(() => import('@/components/About'));
 const Contact = lazy(() => import('@/components/Contact'));
 const PersonalProjects = lazy(() => import('@/components/PersonalProjects'));
 const WorkProjects = lazy(() =>
-  import('@/components/WorkProjects').then((m) => ({ default: m.WorkProjects })),
+  import('@/components/WorkProjects').then((m) => ({ default: m.WorkProjects }))
 );
 
 export const Index = () => {

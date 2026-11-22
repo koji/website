@@ -14,7 +14,13 @@ interface GoToTopButtonProps {
 const POSITION_STYLES: Record<NonNullable<GoToTopButtonProps['position']>, CSSProperties> = {
   'bottom-right': { position: 'fixed', zIndex: 50, bottom: '1.5rem', right: '1.5rem' },
   'bottom-left': { position: 'fixed', zIndex: 50, bottom: '1.5rem', left: '1.5rem' },
-  'bottom-center': { position: 'fixed', zIndex: 50, bottom: '1.5rem', left: '50%', transform: 'translateX(-50%)' },
+  'bottom-center': {
+    position: 'fixed',
+    zIndex: 50,
+    bottom: '1.5rem',
+    left: '50%',
+    transform: 'translateX(-50%)',
+  },
 };
 
 const GoToTopButton = ({

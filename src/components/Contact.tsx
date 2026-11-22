@@ -74,7 +74,17 @@ const Contact = (): ReactNode => {
         {/* Footer */}
         <div className="text-center mt-10 pt-8 border-t border-[#E9E9E7]">
           <p className="text-sm text-[#9B9A97] font-japanese">
-            © {new Date().getFullYear()} <a href="https://github.com/koji" target="_blank" rel="noopener noreferrer" className="underline hover:text-[#787774] transition-colors" data-umami-event="outbound-github">Koji</a> · こうじ
+            © {new Date().getFullYear()}{' '}
+            <a
+              href="https://github.com/koji"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-[#787774] transition-colors"
+              data-umami-event="outbound-github"
+            >
+              Koji
+            </a>{' '}
+            · こうじ
           </p>
         </div>
       </div>

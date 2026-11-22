@@ -1,5 +1,6 @@
-import { frontendTechStack, otherTechStack } from '@/data/techStackData';
 import type { ReactNode } from 'react';
+
+import { frontendTechStack, otherTechStack } from '@/data/techStackData';
 
 const About = (): ReactNode => {
   return (

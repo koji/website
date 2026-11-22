@@ -1,6 +1,7 @@
+import type { ReactNode } from 'react';
+
 import { ProjectLink } from '@/components/ProjectLink';
 import { workProjects } from '@/data/workPrjData';
-import type { ReactNode } from 'react';
 
 const companyTints: Record<string, { bg: string; text: string }> = {
   Opentrons: { bg: '#FEF0E4', text: '#C25A1C' },

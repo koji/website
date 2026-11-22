@@ -1,5 +1,6 @@
 import { Suspense, lazy } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
 import { Index } from './pages/index';
 
 const NotFound = lazy(() => import('./pages/NotFound'));

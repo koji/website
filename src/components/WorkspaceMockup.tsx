@@ -1,7 +1,7 @@
+import type { ReactNode } from 'react';
+
 import { PROJECTS, FEATURED_SKILLS } from '../types/hero';
 import { TechBadge, StatusBadge } from './TechBadge';
-
-import type { ReactNode } from 'react';
 
 export const WorkspaceMockup = (): ReactNode => (
   <div className="bg-white rounded-[12px] border border-[#E9E9E7] shadow-notion-mockup overflow-hidden text-left">
@@ -10,9 +10,7 @@ export const WorkspaceMockup = (): ReactNode => (
       <span className="text-base" role="img" aria-label="clipboard">
         📋
       </span>
-      <span className="text-sm font-semibold text-[#37352F]">
-        Project Dashboard
-      </span>
+      <span className="text-sm font-semibold text-[#37352F]">Project Dashboard</span>
     </div>
 
     {/* Table Content */}
@@ -81,4 +79,3 @@ export const WorkspaceMockup = (): ReactNode => (
     </div>
   </div>
 );
-

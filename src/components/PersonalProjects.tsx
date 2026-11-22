@@ -28,7 +28,7 @@ const categoryIcons: Record<string, string> = {
 };
 
 const PersonalProjects = (): ReactNode => {
-  const reversedProjects = [...personalProjects].reverse();
+  const reversedProjects = personalProjects.toReversed();
 
   return (
     <section id="personal" className="py-24 px-4 sm:px-6 lg:px-8 bg-white">

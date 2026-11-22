@@ -1,6 +1,8 @@
-import type { ReactNode } from 'react';
+import { contactEmail, contactMailto } from '@/lib/contact';
+import { type ReactNode, useState } from 'react';
 
 const Contact = (): ReactNode => {
+  const [revealed, setRevealed] = useState(false);
   return (
     <section id="contact" className="py-24 px-4 sm:px-6 lg:px-8 bg-[#F7F6F3]">
       <div className="max-w-3xl mx-auto">
@@ -31,13 +33,24 @@ const Contact = (): ReactNode => {
             <p className="text-sm text-[#45413C] mb-2">
               Drop me a line and let's discuss your next project
             </p>
-            <a
-              href="mailto:baxin1919@gmail.com"
-              className="text-[18px] font-medium text-[#7766E4] hover:text-[#6655D8] transition-colors"
-              data-umami-event="contact-email"
-            >
-              baxin1919(at-mark)gmail.com
-            </a>
+            {revealed ? (
+              <a
+                href={contactMailto()}
+                className="text-[18px] font-medium text-[#7766E4] hover:text-[#6655D8] transition-colors"
+                data-umami-event="contact-email"
+              >
+                {contactEmail()}
+              </a>
+            ) : (
+              <button
+                type="button"
+                onClick={() => setRevealed(true)}
+                className="text-[18px] font-medium text-[#7766E4] hover:text-[#6655D8] transition-colors text-left"
+                data-umami-event="contact-email-reveal"
+              >
+                Show email address
+              </button>
+            )}
           </div>
 
           {/* Quick Actions */}
@@ -55,7 +68,7 @@ const Contact = (): ReactNode => {
               type="button"
               className="flex-1 flex items-center justify-center gap-2 py-3 text-sm font-medium text-white bg-[#7766E4] rounded-[8px] hover:bg-[#6655D8] transition-colors"
               onClick={() => {
-                window.location.href = 'mailto:baxin1919@gmail.com?subject=Hello%20Koji!';
+                window.location.href = contactMailto('Hello Koji!');
               }}
               data-umami-event="contact-email"
             >

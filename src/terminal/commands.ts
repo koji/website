@@ -2,6 +2,7 @@ import type { CommandAction, CommandLog, YieldChunk } from 'hakoniwa-term';
 import { personalProjects } from '../data/personalPrjData';
 import { frontendTechStack, otherTechStack } from '../data/techStackData';
 import { workProjects } from '../data/workPrjData';
+import { contactEmail } from '../lib/contact';
 import { TERMINAL_THEME_CHOICES, isTerminalThemeChoice } from './theme';
 import type { TerminalThemeChoice } from './theme';
 
@@ -147,7 +148,7 @@ const COMMANDS = {
     description: 'Print contact links.',
     handler: async function* () {
       yield success('Contact');
-      yield output('Email: baxin1919@gmail.com');
+      yield output(`Email: ${contactEmail()}`);
       yield output('GitHub: https://github.com/koji');
       yield output('Hugging Face: https://huggingface.co/baxin');
       yield output('Blog: https://baxin.pages.dev/');

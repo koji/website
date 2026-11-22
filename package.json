@@ -14,7 +14,8 @@
     "preview": "vite preview",
     "test": "vitest",
     "test:run": "vitest run",
-    "doctor": "npx react-doctor@latest"
+    "doctor": "bunx react-doctor@latest",
+    "cz": "czg"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.0",
@@ -36,6 +37,7 @@
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react-swc": "^3.11.0",
     "autoprefixer": "^10.4.20",
+    "cz-git": "^1.14.0",
     "jsdom": "^26.1.0",
     "knip": "^6.43.0",
     "oxfmt": "^0.79.0",

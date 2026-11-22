@@ -1,8 +1,9 @@
-import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
-import type { MouseEvent, ReactNode } from "react";
-import { Link } from "react-router-dom";
+import { Menu, X } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import type { MouseEvent, ReactNode } from 'react';
+import { Link } from 'react-router-dom';
+
+import { Button } from '@/components/ui/button';
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,33 +18,26 @@ const Navigation = () => {
       }
     };
     const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setIsProjectsOpen(false);
+      if (e.key === 'Escape') setIsProjectsOpen(false);
     };
-    document.addEventListener("pointerdown", onPointerDown);
-    document.addEventListener("keydown", onKeyDown);
+    document.addEventListener('pointerdown', onPointerDown);
+    document.addEventListener('keydown', onKeyDown);
     return () => {
-      document.removeEventListener("pointerdown", onPointerDown);
-      document.removeEventListener("keydown", onKeyDown);
+      document.removeEventListener('pointerdown', onPointerDown);
+      document.removeEventListener('keydown', onKeyDown);
     };
   }, [isProjectsOpen]);
 
-  const handleNavClick = (e: MouseEvent<HTMLElement>, sectionId: string):ReactNode => {
-    if (
-      e.defaultPrevented ||
-      e.button !== 0 ||
-      e.metaKey ||
-      e.altKey ||
-      e.ctrlKey ||
-      e.shiftKey
-    ) {
+  const handleNavClick = (e: MouseEvent<HTMLElement>, sectionId: string): ReactNode => {
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.altKey || e.ctrlKey || e.shiftKey) {
       return;
     }
 
     e.preventDefault();
     const element = document.getElementById(sectionId);
     if (element) {
-      window.history.pushState(null, "", `#${sectionId}`);
-      element.scrollIntoView({ behavior: "smooth" });
+      window.history.pushState(null, '', `#${sectionId}`);
+      element.scrollIntoView({ behavior: 'smooth' });
     }
     setIsMenuOpen(false);
   };
@@ -55,7 +49,7 @@ const Navigation = () => {
           {/* Logo */}
           <button
             type="button"
-            onClick={(e) => handleNavClick(e, "home")}
+            onClick={(e) => handleNavClick(e, 'home')}
             className="text-lg font-semibold text-[#37352F] font-japanese tracking-tight"
           >
             Koji · こうじ
@@ -65,14 +59,14 @@ const Navigation = () => {
           <div className="hidden md:flex items-center space-x-6">
             <button
               type="button"
-              onClick={(e) => handleNavClick(e, "home")}
+              onClick={(e) => handleNavClick(e, 'home')}
               className="text-sm text-[#787774] hover:text-[#37352F] transition-colors"
             >
               Home
             </button>
             <button
               type="button"
-              onClick={(e) => handleNavClick(e, "about")}
+              onClick={(e) => handleNavClick(e, 'about')}
               className="text-sm text-[#787774] hover:text-[#37352F] transition-colors"
             >
               About
@@ -94,7 +88,7 @@ const Navigation = () => {
                     type="button"
                     onClick={(e) => {
                       setIsProjectsOpen(false);
-                      handleNavClick(e, "work");
+                      handleNavClick(e, 'work');
                     }}
                     className="block w-full text-left px-2 py-1.5 cursor-pointer text-sm text-[#37352F] hover:bg-[#F7F6F3] rounded-[8px]"
                   >
@@ -104,7 +98,7 @@ const Navigation = () => {
                     type="button"
                     onClick={(e) => {
                       setIsProjectsOpen(false);
-                      handleNavClick(e, "personal");
+                      handleNavClick(e, 'personal');
                     }}
                     className="block w-full text-left px-2 py-1.5 cursor-pointer text-sm text-[#37352F] hover:bg-[#F7F6F3] rounded-[8px]"
                   >
@@ -145,7 +139,7 @@ const Navigation = () => {
 
             <button
               type="button"
-              onClick={(e) => handleNavClick(e, "contact")}
+              onClick={(e) => handleNavClick(e, 'contact')}
               className="bg-[#7766E4] text-white rounded-[8px] px-[18px] py-[9px] text-sm font-medium hover:bg-[#6655D8] transition-colors"
             >
               Get In Touch
@@ -154,11 +148,7 @@ const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
+            <Button variant="ghost" size="sm" onClick={() => setIsMenuOpen(!isMenuOpen)}>
               {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </Button>
           </div>
@@ -170,28 +160,28 @@ const Navigation = () => {
             <div className="py-3 space-y-1">
               <button
                 type="button"
-                onClick={(e) => handleNavClick(e, "home")}
+                onClick={(e) => handleNavClick(e, 'home')}
                 className="block w-full text-left px-4 py-2.5 text-sm text-[#787774] hover:text-[#37352F] hover:bg-[#F7F6F3] rounded-[8px]"
               >
                 Home
               </button>
               <button
                 type="button"
-                onClick={(e) => handleNavClick(e, "about")}
+                onClick={(e) => handleNavClick(e, 'about')}
                 className="block w-full text-left px-4 py-2.5 text-sm text-[#787774] hover:text-[#37352F] hover:bg-[#F7F6F3] rounded-[8px]"
               >
                 About
               </button>
               <button
                 type="button"
-                onClick={(e) => handleNavClick(e, "work")}
+                onClick={(e) => handleNavClick(e, 'work')}
                 className="block w-full text-left px-4 py-2.5 text-sm text-[#787774] hover:text-[#37352F] hover:bg-[#F7F6F3] rounded-[8px]"
               >
                 Work
               </button>
               <button
                 type="button"
-                onClick={(e) => handleNavClick(e, "personal")}
+                onClick={(e) => handleNavClick(e, 'personal')}
                 className="block w-full text-left px-4 py-2.5 text-sm text-[#787774] hover:text-[#37352F] hover:bg-[#F7F6F3] rounded-[8px]"
               >
                 Personal Projects
@@ -207,7 +197,7 @@ const Navigation = () => {
               </a>
               <button
                 type="button"
-                onClick={(e) => handleNavClick(e, "contact")}
+                onClick={(e) => handleNavClick(e, 'contact')}
                 className="block w-full text-left px-4 py-2.5 text-sm text-[#787774] hover:text-[#37352F] hover:bg-[#F7F6F3] rounded-[8px]"
               >
                 Contact

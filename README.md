@@ -24,7 +24,7 @@ Live site: [koji.thedev.id](https://koji.thedev.id)
 - **UI Components**: shadcn/ui patterns with Radix UI Slot, class-variance-authority, and tailwind-merge
 - **Icons**: lucide-react
 - **Terminal**: hakoniwa-term
-- **Linting and Formatting**: Biome
+- **Linting and Formatting**: Oxlint and Oxfmt
 - **Testing**: Vitest, Testing Library, jsdom
 - **Deployment**: Vercel
 
@@ -64,11 +64,14 @@ bun run build:dev
 # Lint code
 bun run lint
 
-# Format code
-bun run format
+# Lint and apply safe fixes
+bun run lint:fix
 
-# Lint, format, and organize imports
-bun run check
+# Format code
+bun run fmt
+
+# Check formatting
+bun run fmt:check
 
 # Preview production build
 bun run preview

@@ -309,7 +309,8 @@ export const personalProjects: PersonalProject[] = [
   {
     id: 'oss-11',
     title: 'hakoniwa-term',
-    description:'A programmable, retro hacker-style terminal UI component for React applications with complete style isolation.',
+    description:
+      'A programmable, retro hacker-style terminal UI component for React applications with complete style isolation.',
     technologies: ['react', 'typescript', 'pnpm', 'npm package', 'web'],
     liveUrl: 'https://www.npmjs.com/package/hakoniwa-term',
     githubUrl: 'https://github.com/koji/hakoniwa-term',
@@ -319,7 +320,7 @@ export const personalProjects: PersonalProject[] = [
   {
     id: 'oss-12',
     title: 'protocol factory',
-    description:'A VSCode extension that visualize an Opentrons protocol of Flex/OT-2',
+    description: 'A VSCode extension that visualize an Opentrons protocol of Flex/OT-2',
     technologies: ['react', 'typescript', 'pnpm', 'vscode extension', 'web', 'node'],
     liveUrl: 'https://protocol-factory.netlify.app/',
     githubUrl: 'https://github.com/koji/protocol-factory-web',
@@ -329,7 +330,8 @@ export const personalProjects: PersonalProject[] = [
   {
     id: 'web-11',
     title: 'Awesome LLM Agents',
-    description:'Curated links for ChatGPT, LLMs, prompt engineering, agent frameworks, coding tools, libraries, and adjacent resources.',
+    description:
+      'Curated links for ChatGPT, LLMs, prompt engineering, agent frameworks, coding tools, libraries, and adjacent resources.',
     technologies: ['react', 'typescript', 'bun', 'vscode extension', 'web'],
     liveUrl: 'https://koji.github.io/awesome-llm-agents/',
     githubUrl: 'https://github.com/koji/awesome-llm-agents',
@@ -339,7 +341,8 @@ export const personalProjects: PersonalProject[] = [
   {
     id: 'web-12',
     title: 'OpenRouter Free Models',
-    description:'A simple, hourly snapshot of all free models available on OpenRouter. Data is refreshed every hour via Cloudflare Workers and served from KV.',
+    description:
+      'A simple, hourly snapshot of all free models available on OpenRouter. Data is refreshed every hour via Cloudflare Workers and served from KV.',
     technologies: ['react', 'typescript', 'bun', 'hono', 'web', 'node', 'Cloudflare Workers'],
     liveUrl: 'https://openrouter-free-models-et6.pages.dev/',
     githubUrl: 'https://github.com/koji/free-models',

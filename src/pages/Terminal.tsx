@@ -1,14 +1,17 @@
 import { Terminal } from 'hakoniwa-term';
 import type { CommandLog } from 'hakoniwa-term';
+
 import 'hakoniwa-term/dist/index.css';
 import { useMemo, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+
 import { createCommands } from '@/terminal/commands';
 import {
   NOTION_TERMINAL_THEME,
   TERMINAL_THEME_CHOICES,
   type TerminalThemeChoice,
 } from '@/terminal/theme';
+
 import './Terminal.css';
 
 const INITIAL_HISTORY: CommandLog[] = [

@@ -1,7 +1,6 @@
-
 @font-face {
-  font-family: "Paper Mono";
-  src: url("/fonts/PaperMono[wght].woff2") format("woff2-variations");
+  font-family: 'Paper Mono';
+  src: url('/fonts/PaperMono[wght].woff2') format('woff2-variations');
   font-weight: 100 800;
   font-style: normal;
   font-display: swap;
@@ -74,6 +73,6 @@
   }
 
   .shadow-notion-mockup {
-    box-shadow: rgba(15, 15, 15, 0.20) 0px 24px 48px -8px;
+    box-shadow: rgba(15, 15, 15, 0.2) 0px 24px 48px -8px;
   }
 }

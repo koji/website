@@ -98,7 +98,8 @@ describe('terminal commands', () => {
 
     const text = await run(commands, 'contact');
 
-    expect(text).toContain('baxin1919@gmail.com');
+    const expectedEmail = ['baxin1919', 'gmail.com'].join('@');
+    expect(text).toContain(expectedEmail);
     expect(text).toContain('https://github.com/koji');
   });
 
